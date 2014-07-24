@@ -8,13 +8,12 @@
 #ifndef SIGNALHANDLER_H_
 #define SIGNALHANDLER_H_
 
-#include "../SignalHandlerBuilder/SighandlerBuilder.h"
-
-class SighandlerBuilder;
 
 class SignalHandler
 {
 public:
+	friend class SighandlerBuilder;
+
 	enum type {					// These are from linux signal
 		sighup 		=	1,
 		sigint		=	2,
@@ -39,9 +38,9 @@ public:
 		sigttou		=	27
 	};
 
-	static SignalHandler* getInstance();
 	static void destroyInstance();
 
+protected:
 	SignalHandler();
 	~SignalHandler();
 
@@ -49,8 +48,9 @@ private:
 	SignalHandler(const SignalHandler*);
 	SignalHandler &operator= (const SignalHandler*);
 
+	static SignalHandler* getInstance();
+
 	static SignalHandler* mInstance;
-	static SighandlerBuilder* mBuilder;
 };
 
 #endif /* SIGNALHANDLER_H_ */

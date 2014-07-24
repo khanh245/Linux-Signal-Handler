@@ -31,6 +31,5 @@ SighandlerBuilder* SighandlerBuilder::addSignal(const unsigned& signal)
 
 SignalHandler* SighandlerBuilder::build()
 {
-
-	return (SignalHandler*)0;
+	return SignalHandler::getInstance();
 }

@@ -176,13 +176,16 @@ int main(void) {
 
 #include <iostream>
 
-#include "SignalHandler.h"
+#include "SighandlerBuilder.h"
 
 int main()
 {
 	std::cout << "Signal Handler Exerciser..." << std::endl;
-	SignalHandler* sighanler = SignalHandler::getInstance();
+	SighandlerBuilder* mBuilder = new SighandlerBuilder();
+	SignalHandler* handler = mBuilder->build();
 
+	delete mBuilder;
 	SignalHandler::destroyInstance();
+
 	return 0;
 }
