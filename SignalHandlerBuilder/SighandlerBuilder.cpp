@@ -15,6 +15,16 @@ SighandlerBuilder::~SighandlerBuilder()
 
 SighandlerBuilder* SighandlerBuilder::addSignal(const unsigned& signal)
 {
+	switch(signal)
+	{
+	case SignalHandler::sighup:
+		break;
+	case SignalHandler::sigint:
+		break;
+
+	default:
+		break;
+	}
 
 	return this;
 }
