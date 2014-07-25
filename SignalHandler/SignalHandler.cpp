@@ -14,10 +14,6 @@ SignalHandler::SignalHandler()
 
 SignalHandler::~SignalHandler()
 {
-	/* This is for unlocking mask not destruct it
-	if (sigprocmask(SIG_SETMASK, &mMask, NULL) < 0)
-		std::cerr << "removing mask error" << std::endl;
-	*/
 	sigemptyset(&mMask);
 }
 
