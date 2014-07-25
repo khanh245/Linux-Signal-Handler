@@ -187,7 +187,6 @@ int main()
 			->addSignalMask(SignalHandler::sigquit);
 
 	SignalHandler* handler = mBuilder->build();
-	std::cout << handler->getID() << std::endl;
 
 	mBuilder->demolish();
 	delete mBuilder;

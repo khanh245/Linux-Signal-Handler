@@ -45,8 +45,6 @@ public:
 
 	};
 
-	int getID() { return mPID; }
-
 protected:
 	SignalHandler();
 	~SignalHandler();
@@ -55,6 +53,7 @@ protected:
 	static void destroyInstance();
 
 	void addMask (const unsigned& mask);
+	int getPID() { return mPID; }
 
 private:
 	SignalHandler(const SignalHandler*);
