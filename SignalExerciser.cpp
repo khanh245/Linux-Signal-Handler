@@ -175,7 +175,6 @@ int main(void) {
 */
 
 #include <iostream>
-
 #include "SighandlerBuilder.h"
 
 int main()
@@ -188,8 +187,9 @@ int main()
 			->addSignalMask(SignalHandler::sigquit);
 
 	SignalHandler* handler = mBuilder->build();
-	mBuilder->demolish();
+	std::cout << handler->getID() << std::endl;
 
+	mBuilder->demolish();
 	delete mBuilder;
 
 	return 0;

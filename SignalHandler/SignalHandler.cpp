@@ -9,7 +9,7 @@
 
 SignalHandler* SignalHandler::mInstance = NULL;
 
-SignalHandler::SignalHandler()
+SignalHandler::SignalHandler()	:	mPID(getpid())
 { }
 
 SignalHandler::~SignalHandler()

@@ -12,6 +12,7 @@
 #include <pthread.h>
 #include <signal.h>
 #include <stdlib.h>
+#include <unistd.h>
 
 class SignalHandler
 {
@@ -44,6 +45,8 @@ public:
 
 	};
 
+	int getID() { return mPID; }
+
 protected:
 	SignalHandler();
 	~SignalHandler();
@@ -59,7 +62,7 @@ private:
 
 	static SignalHandler* mInstance;
 	sigset_t mMask;
-
+	int mPID;
 };
 
 #endif /* SIGNALHANDLER_H_ */
