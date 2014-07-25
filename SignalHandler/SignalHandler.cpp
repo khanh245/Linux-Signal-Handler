@@ -10,10 +10,7 @@
 SignalHandler* SignalHandler::mInstance = NULL;
 
 SignalHandler::SignalHandler()
-{
-	// TODO: add sig action from linux
-
-}
+{ }
 
 SignalHandler::~SignalHandler()
 {
