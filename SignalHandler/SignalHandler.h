@@ -18,28 +18,30 @@ class SignalHandler
 public:
 	friend class SighandlerBuilder;
 
-	enum type {					// These are from linux signal
-		sighup 		=	1,
-		sigint		=	2,
-		sigquit		=	3,
-		sigill		=	4,
-		sigabrt		=	6,
-		sigfpe		=	8,
-		sigkill		=	9,
-		sigsegv		=	11,
-		sigpipe		=	13,
-		sigalrm		=	14,
-		sigterm		=	15,
-		sigusr1		=	16,
-		sigusr2		=	17,
-		sigchld		=	18,
-		sigcont		=	19,
+	enum type {					// These are from Linux signal
 
-		sigstop		=	23,
-		sigtstp		=	24,
+		sighup 		=	1,		// Death of Process or Hangup on terminal
+		sigint		=	2,		// Interrupt from keyboard (Ctrl + C)
+		sigquit		=	3,		// Quit Signal (keyboard)
+		sigill		=	4,		// Illegal instruction
+		sigabrt		=	6,		// Abort Signal ("abort")
+		sigfpe		=	8,		// Floating point exception
+		sigkill		=	9,		// Kill Signal
+		sigsegv		=	11,		// Invalid memory reference
+		sigpipe		=	13,		// Broken Pipe
+		sigalrm		=	14,		// Timer signal from ("alarm")
+		sigterm		=	15,		// Termination Signal
+		sigusr1		=	16,		// User-defined Signal 1
+		sigusr2		=	17,		// User-defined Signal 2
+		sigchld		=	18,		// Child terminated
+		sigcont		=	19,		// Continue if stopped
 
-		sigttin		=	26,
-		sigttou		=	27
+		sigstop		=	23,		// Stop process
+		sigtstp		=	24,		// Stop at tty ("stop")
+
+		sigttin		=	26,		// tty input for background process
+		sigttou		=	27 		// tty output for background process
+
 	};
 
 	static void destroyInstance();
