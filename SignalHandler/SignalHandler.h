@@ -44,22 +44,22 @@ public:
 
 	};
 
-	static void destroyInstance();
-
 protected:
 	SignalHandler();
 	~SignalHandler();
+
+	static SignalHandler* getInstance();
+	static void destroyInstance();
+
+	void addMask (const unsigned& mask);
 
 private:
 	SignalHandler(const SignalHandler*);
 	SignalHandler &operator= (const SignalHandler*);
 
-	static SignalHandler* getInstance();
 	static SignalHandler* mInstance;
-
 	sigset_t mMask;
 
-	void addMask (const unsigned& mask);
 };
 
 #endif /* SIGNALHANDLER_H_ */

@@ -188,9 +188,9 @@ int main()
 			->addSignalMask(SignalHandler::sigquit);
 
 	SignalHandler* handler = mBuilder->build();
+	mBuilder->demolish();
 
 	delete mBuilder;
-	SignalHandler::destroyInstance();
 
 	return 0;
 }

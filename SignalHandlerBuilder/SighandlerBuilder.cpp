@@ -23,3 +23,8 @@ SignalHandler* SighandlerBuilder::build()
 {
 	return SignalHandler::getInstance();
 }
+
+void SighandlerBuilder::demolish()
+{
+	SignalHandler::destroyInstance();
+}

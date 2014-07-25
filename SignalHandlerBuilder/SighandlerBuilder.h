@@ -20,6 +20,7 @@ public:
 
 	SighandlerBuilder* addSignalMask(const unsigned& sig);
 	SignalHandler* build();
+	void demolish();
 
 private:
 
