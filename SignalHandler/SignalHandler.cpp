@@ -6,19 +6,19 @@
  */
 
 #include "SignalHandler.h"
-#include <stdexcept>
 
 SignalHandler* SignalHandler::mInstance = NULL;
 
 SignalHandler::SignalHandler()
 {
-// TODO: add sig action from linux
+	// TODO: add sig action from linux
+
 }
 
 SignalHandler::~SignalHandler()
 {
-// TODO: remove sigset when signal handler is destructed
-//		 which I don't think it will.
+	if (sigprocmask(SIG_SETMASK, &mMask, NULL) < 0)
+		std::cerr << "removing mask error" << std::endl;
 }
 
 SignalHandler* SignalHandler::getInstance()
@@ -35,4 +35,17 @@ void SignalHandler::destroyInstance()
 		delete mInstance;
 		mInstance = NULL;
 	}
+}
+
+void SignalHandler::addMask(const unsigned& mask)
+{
+	sigset_t newmask;
+	int error;
+
+	sigemptyset(&newmask);
+	if ((error = sigaddset(&newmask, mask)) < 0)
+		std::cerr << "'signum' arg is invalid" << std::endl;
+
+	if ((error = pthread_sigmask(SIG_BLOCK, &newmask, &mMask)) < 0)
+		std::cerr << "'how' arg is invalid" << std::endl;
 }

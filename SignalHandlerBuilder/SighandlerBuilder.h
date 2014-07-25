@@ -18,7 +18,7 @@ public:
 	SighandlerBuilder();
 	~SighandlerBuilder();
 
-	SighandlerBuilder* addSignal(const unsigned& sig);
+	SighandlerBuilder* addSignalMask(const unsigned& sig);
 	SignalHandler* build();
 
 private:

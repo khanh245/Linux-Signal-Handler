@@ -13,19 +13,9 @@ SighandlerBuilder::SighandlerBuilder()
 SighandlerBuilder::~SighandlerBuilder()
 { }
 
-SighandlerBuilder* SighandlerBuilder::addSignal(const unsigned& signal)
+SighandlerBuilder* SighandlerBuilder::addSignalMask(const unsigned& signal)
 {
-	switch(signal)
-	{
-	case SignalHandler::sighup:
-		break;
-	case SignalHandler::sigint:
-		break;
-
-	default:
-		break;
-	}
-
+	SignalHandler::getInstance()->addMask(signal);
 	return this;
 }
 

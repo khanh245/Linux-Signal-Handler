@@ -182,6 +182,11 @@ int main()
 {
 	std::cout << "Signal Handler Exerciser..." << std::endl;
 	SighandlerBuilder* mBuilder = new SighandlerBuilder();
+	mBuilder->addSignalMask(SignalHandler::sigusr2)
+			->addSignalMask(SignalHandler::sigabrt)
+			->addSignalMask(SignalHandler::sigterm)
+			->addSignalMask(SignalHandler::sigquit);
+
 	SignalHandler* handler = mBuilder->build();
 
 	delete mBuilder;

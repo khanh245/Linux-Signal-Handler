@@ -8,6 +8,10 @@
 #ifndef SIGNALHANDLER_H_
 #define SIGNALHANDLER_H_
 
+#include <iostream>
+#include <pthread.h>
+#include <signal.h>
+#include <stdlib.h>
 
 class SignalHandler
 {
@@ -49,8 +53,11 @@ private:
 	SignalHandler &operator= (const SignalHandler*);
 
 	static SignalHandler* getInstance();
-
 	static SignalHandler* mInstance;
+
+	sigset_t mMask;
+
+	void addMask (const unsigned& mask);
 };
 
 #endif /* SIGNALHANDLER_H_ */
