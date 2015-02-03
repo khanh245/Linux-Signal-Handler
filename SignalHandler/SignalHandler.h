@@ -46,17 +46,40 @@ public:
 	};
 
 protected:
+	// Constructor
 	SignalHandler();
+
+	// Destructor
 	~SignalHandler();
 
+	/**
+	 * The Signal Hanlder Instance
+	 * @return The instance
+	 */
 	static SignalHandler* getInstance();
+
+	/**
+	 * Destroy the instance
+	 */
 	static void destroyInstance();
 
+	/**
+	 * Add signal mask to Signal handler
+	 * @param mask The @type
+	 */
 	void addMask (const unsigned& mask);
+
+	/**
+	 * The process ID of the signal handler instance
+	 * @return
+	 */
 	int getPID() { return mPID; }
 
 private:
+	// Copy is not allowed
 	SignalHandler(const SignalHandler*);
+
+	// Assignment is not allowed
 	SignalHandler &operator= (const SignalHandler*);
 
 	static SignalHandler* mInstance;
